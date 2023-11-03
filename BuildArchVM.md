@@ -5,7 +5,7 @@
 * Assumption of a 64GB disk, size accordingly
 * A boot, root and swap partiton are created
 * Assumption that the disk being worked on is /dev/sdb, change accordingly
-* wget
+* Build VM needs wget
 
 ## Create the disk partitions
 
