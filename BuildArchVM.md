@@ -46,12 +46,11 @@ chroot /mnt/arch /bin/bash
 
 pacman-key --init  
 pacman-key --populate archlinuxarm  
-sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf  
-pacman -Syu vim  
+sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf  
 
 ## Install packages
 
-pacman -Syu base linux linux-firmware vim arch-install-scripts efibootmgr networkmanager network-manager-applet dialog os-prober mtools dosfstools base-devel linux-headers net-tools inetutils
+pacman -Syu base linux linux-firmware vim arch-install-scripts efibootmgr networkmanager network-manager-applet dialog os-prober mtools dosfstools base-devel linux-headers net-tools inetutils vim
 
 ## Move boot files to boot partition
 cp -r /boot/* /tmp/    
