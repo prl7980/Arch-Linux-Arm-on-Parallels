@@ -83,7 +83,7 @@ echo -e "127.0.0.1\tlocalhost" >> /etc/hosts
 
 ## Install systemd boot manager
 
-bootctl --path=/boot install
+bootctl install
 
 ## Configure systemd boot manager
 
