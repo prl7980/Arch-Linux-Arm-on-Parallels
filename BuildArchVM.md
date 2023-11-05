@@ -81,7 +81,14 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "arch" > /etc/hostname   
 echo -e "127.0.0.1\tlocalhost" >> /etc/hosts
 
-## Install systemd boot manager
+## Enable ssh root user
+
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+## Install Boot manager
+This procedure give details of installing the systemd-boot or GRUB2 bootloaders 
+
+## systemd boot manager
 
 bootctl install
 
@@ -97,13 +104,7 @@ echo default arch.conf >> /boot/loader/loader.conf
 echo -e "title    Arch Linux\nlinux       /Image\ninitrd  /initramfs-linux.img" > /boot/loader/entries/arch.conf  
 blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print "options root="$5" rootfstype=ext4 rw rootflags=rw,noatime"}' >> /boot/loader/entries/arch.conf   
 
-## Enable Network Manager
-
-systemctl enable NetworkManager
-
-## Enable ssh root user
-
-sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+## systemd boot manager
 
 ## Detach disk
 
