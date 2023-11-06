@@ -92,7 +92,7 @@ This procedure give details of installing the systemd-boot or GRUB2 boot manager
 
 bootctl install
 
-## Configure systemd boot manager
+## Configure systemd-boot boot manager
 
 ***Configure /boot/loader/loader.conf***
 
@@ -104,13 +104,18 @@ echo default arch.conf >> /boot/loader/loader.conf
 echo -e "title    Arch Linux\nlinux       /Image\ninitrd  /initramfs-linux.img" > /boot/loader/entries/arch.conf  
 blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print "options root="$5" rootfstype=ext4 rw rootflags=rw,noatime"}' >> /boot/loader/entries/arch.conf   
 
-## systemd boot manager
+## systemd GRUB2 boot manager
 
 pacman -S grub
+
 mv /boot/Image /boot/vmlinuz-linux
+
 grub-install --target=arm64-efi --bootloader-id=GRUB --efi-directory=/boot
+
 mkdir /boot/EFI/BOOT
+
 cp /boot/EFI/GRUB/grubaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
+
 grub-mkconfig -o /boot/grub/grub.cfg
 
 ## Detach disk
