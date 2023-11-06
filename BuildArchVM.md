@@ -85,14 +85,12 @@ echo -e "127.0.0.1\tlocalhost" >> /etc/hosts
 
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
-## Install Boot manager
-This procedure give details of installing the systemd-boot or GRUB2 boot manager
+## Install Boot manager of choice
+There are two main methods to install a boot loader, systemd-boot or GRUB2, choose one of these listed below
 
-## systemd boot manager
+## Install systemd-boot manager
 
 bootctl install
-
-## Configure systemd-boot boot manager
 
 sed -i 's/#timeout 3/timeout 10/g' /boot/loader/loader.conf   
 echo default arch.conf >> /boot/loader/loader.conf 
@@ -100,16 +98,14 @@ echo default arch.conf >> /boot/loader/loader.conf
 echo -e "title    Arch Linux\nlinux       /Image\ninitrd  /initramfs-linux.img" > /boot/loader/entries/arch.conf  
 blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print "options root="$5" rootfstype=ext4 rw rootflags=rw,noatime"}' >> /boot/loader/entries/arch.conf   
 
-## systemd GRUB2 boot manager
+## Install GRUB2 boot manager
 
 pacman -S grub
 
 mv /boot/Image /boot/vmlinuz-linux
-
 grub-install --target=arm64-efi --bootloader-id=GRUB --efi-directory=/boot
 
-mkdir /boot/EFI/BOOT
-
+mkdir /boot/EFI/BOOT   
 cp /boot/EFI/GRUB/grubaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
 
 grub-mkconfig -o /boot/grub/grub.cfg
