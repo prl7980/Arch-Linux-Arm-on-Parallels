@@ -94,12 +94,8 @@ bootctl install
 
 ## Configure systemd-boot boot manager
 
-***Configure /boot/loader/loader.conf***
-
 sed -i 's/#timeout 3/timeout 10/g' /boot/loader/loader.conf   
 echo default arch.conf >> /boot/loader/loader.conf 
-
-***Configure /boot/loader/entries/arch.conf***
 
 echo -e "title    Arch Linux\nlinux       /Image\ninitrd  /initramfs-linux.img" > /boot/loader/entries/arch.conf  
 blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print "options root="$5" rootfstype=ext4 rw rootflags=rw,noatime"}' >> /boot/loader/entries/arch.conf   
