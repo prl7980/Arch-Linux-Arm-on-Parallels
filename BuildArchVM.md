@@ -102,10 +102,10 @@ blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print "options root="$5" rootfstyp
 
 pacman -S grub
 
-mv /boot/Image /boot/vmlinuz-linux
+mv /boot/Image /boot/vmlinuz-linux    
 grub-install --target=arm64-efi --bootloader-id=GRUB --efi-directory=/boot
 
-mkdir /boot/EFI/BOOT   
+mkdir /boot/EFI/BOOT     
 cp /boot/EFI/GRUB/grubaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
 
 grub-mkconfig -o /boot/grub/grub.cfg
