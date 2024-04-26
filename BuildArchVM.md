@@ -50,7 +50,7 @@ sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
 
 ## Install packages
 
-pacman -Syu base linux linux-firmware vim arch-install-scripts efibootmgr networkmanager network-manager-applet dialog os-prober mtools dosfstools base-devel linux-headers net-tools inetutils wget
+pacman -Syu base linux linux-firmware vim arch-install-scripts efibootmgr networkmanager network-manager-applet dialog os-prober mtools dosfstools base-devel linux-headers net-tools inetutils wget sudo
 
 ## Move boot files to boot partition
 cp -r /boot/* /tmp/    
