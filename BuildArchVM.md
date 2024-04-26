@@ -110,10 +110,6 @@ cp /boot/EFI/GRUB/grubaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
-## EFISTUB
-
-efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux EFISTUB" --loader /Image  --unicode 'root='$(blkid | grep sda2 | awk '{print $5}' | sed 's/\"//g')' rootfstype=ext4 rw rootflags=rw,noatime initrd=\initramfs-linux.img'
-
 ## Detach disk
 
 * shutdown vm
@@ -122,6 +118,11 @@ efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux EFISTUB" --load
 ## Create VM with 
 
 * Create a new VM
+
+## EFISTUB
+
+efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux EFISTUB" --loader /Image  --unicode 'root='$(blkid | grep sda2 | awk '{print $5}' | sed 's/\"//g')' rootfstype=ext4 rw rootflags=rw,noatime initrd=\initramfs-linux.img'
+
 
 
 
