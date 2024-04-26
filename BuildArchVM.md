@@ -85,14 +85,14 @@ echo -e "127.0.0.1\tlocalhost" >> /etc/hosts
 
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
-## Install Boot manager of choice
-There are two main methods to install a boot loader, systemd-boot or GRUB2, choose one of these listed below
-
 ## Change Network Manager
 
 systemctl disable systemd-networkd
 
 systemctl enable NetworkManager 
+
+## Install Boot manager of choice
+There are two main methods to install a boot loader, systemd-boot or GRUB2, choose one of these listed below
 
 ## Install systemd-boot manager
 
