@@ -56,6 +56,7 @@ systemctl disable systemd-networkd
 
 systemctl enable NetworkManager 
 
+sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 
 ## Move boot files to boot partition
 cp -r /boot/* /tmp/    
