@@ -129,6 +129,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ## Post install
 
 default login and password root:root
+* ssh as root
+* change root password
+* add new user --  sudo useradd -m <user name> 
 
 
 ## EFISTUB
