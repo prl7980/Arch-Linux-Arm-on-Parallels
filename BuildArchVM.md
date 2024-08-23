@@ -126,6 +126,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 * Create a new VM
 
+## Post install
+
+default login and password root:root
+
+
 ## EFISTUB
 
 efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux EFISTUB" --loader /Image --unicode 'root='$(blkid | grep sda2 | awk '{print $5}' | sed 's/"//g')' rw quiet splash initrd=\initramfs-linux.img'
