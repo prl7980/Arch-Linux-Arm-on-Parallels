@@ -131,7 +131,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 default login and password root:root
 * ssh as root
 * change root password
-* add new user --  sudo useradd -m <user name> 
+* add new user and set password --  sudo useradd -m username
+* add user to wheel --  usermod -G wheel username
+* logout and log back in as new user
+* update system --  sudo pacman -Syu
 
 
 ## EFISTUB
