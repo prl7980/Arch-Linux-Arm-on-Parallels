@@ -139,16 +139,8 @@ default login and password root:root
 
 ## EFISTUB
 
-efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux EFISTUB" --loader /Image --unicode 'root='$(blkid | grep sda2 | awk '{print $5}' | sed 's/"//g')' rw quiet splash initrd=\initramfs-linux.img'
-
 efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux EFISTUB" --loader /Image  --unicode 'root='$(blkid | grep sda2 | awk '{print $5}' | sed 's/\"//g')' rootfstype=ext4 rootflags=rw,noatime rw quiet splash initrd=\initramfs-linux.img'
 
-efibootmgr --create \\
-  --disk /dev/sda \\
-  --part 1 \\
-  --label "Arch Linux EFISTUB" \\
-  --loader '\Image' \\
-  --unicode "root=$(blkid -s UUID -o value /dev/sda2) rootfstype=ext4 rootflags=rw,noatime rw quiet splash initrd=\initramfs-linux.img"
 
 
 
