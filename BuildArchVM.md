@@ -34,7 +34,7 @@ mkswap /dev/sdb3
 mkdir ~/arch  
 cd ~/arch  
 wget http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz  
-bsdtar -xpf ArchLinuxARM-aarch64-latest.tar.gz -C /mnt/arch  
+bsdtar -xpf ArchLinuxARM-aarch64-latest.tar.gz -C /mnt/arch    (apt install libarchive-tools)
 
 ## Chroot to new disk
 
