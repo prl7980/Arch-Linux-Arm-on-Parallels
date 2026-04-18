@@ -12,7 +12,7 @@
 cfdisk /dev/sdb
 
 1 &emsp; efi  &emsp; &emsp;1GB  
-2 &emsp; ext2 &emsp; 62GB  
+2 &emsp; linux &emsp; 62GB  
 2 &emsp; swap &emsp;1GB
 
 ## Format partitions
