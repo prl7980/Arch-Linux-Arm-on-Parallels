@@ -150,8 +150,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ## Detach disk
 
-* shutdown vm
-* remove the build disk without deleting the file 
+* Exit chroot
+* Shutdown vm
+* Remove the build disk without deleting the file 
 
 ## Create VM with 
 
