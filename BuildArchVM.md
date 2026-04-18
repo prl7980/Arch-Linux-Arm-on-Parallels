@@ -117,9 +117,9 @@ sed -i '/version=`echo \$basename | sed -e "s,vmlinuz-,,g"`/a\
     alt_version=linux\
   fi' /etc/grub.d/10_linux
      
-grub-install --target=arm64-efi --bootloader-id=GRUB --efi-directory=/boot
-
 sed -i '/insmod efi_uga/d' /etc/grub.d/00_header
+
+grub-install --target=arm64-efi --bootloader-id=GRUB --efi-directory=/boot
 
 mkdir /boot/EFI/BOOT     
 cp /boot/EFI/GRUB/grubaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
