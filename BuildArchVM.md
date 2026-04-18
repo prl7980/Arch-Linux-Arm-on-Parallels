@@ -51,6 +51,8 @@ install libarchive-tools for bsdstar
 mount --bind /mnt/arch /mnt/arch && cd /mnt/arch && rm /mnt/arch/etc/resolv.conf && cp /etc/resolv.conf etc && mount -t proc /proc proc && mount --make-rslave --rbind /sys sys && mount --make-rslave --rbind /dev dev && mount --make-rslave --rbind /run run
 
 chroot /mnt/arch /bin/bash
+
+try this arch-chroot /mnt/arch instead
 ```
 
 ```bash
