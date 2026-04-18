@@ -62,11 +62,6 @@ systemd-machine-id-setup
 
 sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 
-## Move boot files to boot partition
-cp -r /boot/* /tmp/    
-mount /dev/sdb1 /boot/    
-cp -r /tmp/* /boot/     
-
 ## Add fstab entries
 
 blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print $5 "  /       ext4    defaults,noatime        0 1"}' >> /etc/fstab   
@@ -85,12 +80,10 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 ## Hostname
 
 echo "arch" > /etc/hostname   
-echo -e "127.0.0.1\tlocalhost" >> /etc/hosts
 
 ## Enable ssh root user
 
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
 
 ## Install Boot manager of choice
 There are two main methods to install a boot loader, systemd-boot or GRUB2, choose one of these listed below
