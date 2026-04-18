@@ -117,9 +117,9 @@ grub-install --target=arm64-efi --bootloader-id=GRUB --efi-directory=/boot
 
 mkdir /boot/EFI/BOOT     
 cp /boot/EFI/GRUB/grubaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
-```
 
 grub-mkconfig -o /boot/grub/grub.cfg
+```
 
 ## Detach disk
 
