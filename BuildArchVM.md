@@ -109,6 +109,16 @@ blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print "options root="$5" rootfstyp
 
 pacman -S grub
 
+sed -i 's|for i in /boot/vmlinuz-\*|for i in /boot/Image /boot/vmlinuz-*|' /etc/grub.d/10_linux
+
+sed -i '/version=`echo \$basename | sed -e "s,vmlinuz-,,g"`/a\
+  if test "x$basename" = xImage; then\
+    version=linux\
+    alt_version=linux\
+  fi' /etc/grub.d/10_linux
+
+
+
 mv /boot/Image /boot/vmlinuz-linux         
 grub-install --target=arm64-efi --bootloader-id=GRUB --efi-directory=/boot
 
