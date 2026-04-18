@@ -140,6 +140,7 @@ default login and password root:root
 
 ## Add entry in EFI
 
+```bash
 efibootmgr -c \
   -d /dev/sda \
   -p 1 \
