@@ -85,7 +85,7 @@ sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: AL
 
 ```bash
 blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print $5 "  /       ext4    defaults,noatime        0 1"}' >> /etc/fstab   
-blkid | grep /dev/sdb1 | sed 's/"//g' | awk '{print $5 "  /boot   vfat    defaults                0 0"}' >> /etc/fstab   
+blkid | grep /dev/sdb1 | sed 's/"//g' | awk '{print $5 "  /boot   vfat    defaults,noatime        0 0"}' >> /etc/fstab   
 ```
 
 ## Timezones and locales
