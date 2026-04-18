@@ -47,20 +47,25 @@ install libarchive-tools for bsdstar
 
 ## Chroot to new disk
 
+```bash
 mount --bind /mnt/arch /mnt/arch && cd /mnt/arch && rm /mnt/arch/etc/resolv.conf && cp /etc/resolv.conf etc && mount -t proc /proc proc && mount --make-rslave --rbind /sys sys && mount --make-rslave --rbind /dev dev && mount --make-rslave --rbind /run run
 
 chroot /mnt/arch /bin/bash
 
 mount /dev/sdb1 /boot/
+```
 
 ## Pacman keys, settings and update
 
+```bash
 pacman-key --init  
 pacman-key --populate archlinuxarm  
 sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf  
+```
 
 ## Install packages and configuration
 
+```bash
 pacman -Syu base linux linux-firmware vim arch-install-scripts efibootmgr networkmanager network-manager-applet dialog os-prober mtools dosfstools base-devel linux-headers net-tools inetutils wget sudo
 
 systemctl disable systemd-networkd
@@ -70,13 +75,17 @@ systemctl enable NetworkManager
 systemd-machine-id-setup
 
 sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+```
 
 ## Add fstab entries
 
+```bash
 blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print $5 "  /       ext4    defaults,noatime        0 1"}' >> /etc/fstab   
 blkid | grep /dev/sdb1 | sed 's/"//g' | awk '{print $5 "  /boot   vfat    defaults                0 0"}' >> /etc/fstab   
+```
 
 ## Timezones and locales
+```bash
 ln -sf /usr/share/zoneinfo/America/Vancouver /etc/localtime
 
 hwclock --systohc
@@ -85,10 +94,12 @@ sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
 
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
-
+```
 ## Hostname
-
+```bash
 echo "arch" > /etc/hostname   
+```
+Change the name of the machine
 
 ## Enable ssh root user
 
