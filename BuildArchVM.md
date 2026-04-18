@@ -100,6 +100,7 @@ blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print "options root="$5" rootfstyp
 
 ## Install GRUB2 boot manager
 
+```bash
 pacman -S grub
 
 sed -i 's|for i in /boot/vmlinuz-\*|for i in /boot/Image /boot/vmlinuz-*|' /etc/grub.d/10_linux
@@ -116,6 +117,7 @@ grub-install --target=arm64-efi --bootloader-id=GRUB --efi-directory=/boot
 
 mkdir /boot/EFI/BOOT     
 cp /boot/EFI/GRUB/grubaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
+```
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
