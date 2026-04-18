@@ -70,7 +70,7 @@ cp -r /tmp/* /boot/
 ## Add fstab entries
 
 blkid | grep /dev/sdb2 | sed 's/"//g' | awk '{print $5 "  /       ext4    defaults,noatime        0 1"}' >> /etc/fstab   
-blkid | grep /dev/sdb1 | sed 's/"//g' | awk '{print $5 "  /boot   vfat    defaults                0 1"}' >> /etc/fstab   
+blkid | grep /dev/sdb1 | sed 's/"//g' | awk '{print $5 "  /boot   vfat    defaults                0 0"}' >> /etc/fstab   
 
 ## Timezones and locales
 ln -sf /usr/share/zoneinfo/America/Vancouver /etc/localtime
