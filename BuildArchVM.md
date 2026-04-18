@@ -31,14 +31,19 @@ mount /dev/sdb2 /mnt/arch
 
 ## Create swap partition
 
-mkswap /dev/sdb3  
+```bash
+mkswap /dev/sdb3
+```
 
 ## Deploy files to new disk
 
+```bash
 mkdir ~/arch  
 cd ~/arch  
 wget http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz  
-bsdtar -xpf ArchLinuxARM-aarch64-latest.tar.gz -C /mnt/arch    (apt install libarchive-tools)
+bsdtar -xpf ArchLinuxARM-aarch64-latest.tar.gz -C /mnt/arch
+```
+install libarchive-tools for bsdstar
 
 ## Chroot to new disk
 
