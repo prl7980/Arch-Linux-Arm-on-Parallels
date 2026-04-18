@@ -42,6 +42,8 @@ mount --bind /mnt/arch /mnt/arch && cd /mnt/arch && rm /mnt/arch/etc/resolv.conf
 
 chroot /mnt/arch /bin/bash
 
+mount /dev/sdb1 /boot/
+
 ## Pacman keys, settings and update
 
 pacman-key --init  
