@@ -145,7 +145,8 @@ efibootmgr -c \
   -d /dev/sda \
   -p 1 \
   -L "Arch Linux" \
-  -l '\EFI\GRUB\grubaa64.efi'```
+  -l '\EFI\GRUB\grubaa64.efi'
+```
   
 ## EFISTUB
 
