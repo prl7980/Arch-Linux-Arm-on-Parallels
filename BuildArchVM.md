@@ -143,7 +143,14 @@ default login and password root:root
 * logout and log back in as new user
 * update system --  sudo pacman -Syu
 
+## Add entry in EFI
 
+efibootmgr -c \
+  -d /dev/sda \
+  -p 1 \
+  -L "Arch Linux" \
+  -l '\EFI\GRUB\grubaa64.efi'
+  
 ## EFISTUB
 
 efibootmgr --create --disk /dev/sda --part 1 --label "Arch Linux EFISTUB" --loader /Image  --unicode 'root='$(blkid | grep sda2 | awk '{print $5}' | sed 's/\"//g')' rootfstype=ext4 rootflags=rw,noatime rw quiet splash initrd=\initramfs-linux.img'
