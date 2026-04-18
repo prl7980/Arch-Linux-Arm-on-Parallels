@@ -103,7 +103,10 @@ Change the name of the machine
 
 ## Enable ssh root user
 
+```bash
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+```
+Use this if you want the ability to ssh using root
 
 ## Install Boot manager of choice
 There are two main methods to install a boot loader, systemd-boot or GRUB2, choose one of these listed below
