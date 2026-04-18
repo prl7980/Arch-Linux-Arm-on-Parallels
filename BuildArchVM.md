@@ -116,10 +116,7 @@ sed -i '/version=`echo \$basename | sed -e "s,vmlinuz-,,g"`/a\
     version=linux\
     alt_version=linux\
   fi' /etc/grub.d/10_linux
-
-
-
-mv /boot/Image /boot/vmlinuz-linux         
+     
 grub-install --target=arm64-efi --bootloader-id=GRUB --efi-directory=/boot
 
 mkdir /boot/EFI/BOOT     
