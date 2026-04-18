@@ -112,10 +112,10 @@ pacman -S grub
 sed -i 's|for i in /boot/vmlinuz-\*|for i in /boot/Image /boot/vmlinuz-*|' /etc/grub.d/10_linux
 
 sed -i '/version=`echo \$basename | sed -e "s,vmlinuz-,,g"`/a\
-  if test "x$basename" = xImage; then\
-    version=linux\
-    alt_version=linux\
-  fi' /etc/grub.d/10_linux
+if test "x$basename" = xImage; then\
+  version=linux\
+  alt_version=linux\
+fi' /etc/grub.d/10_linux
      
 sed -i '/insmod efi_uga/d' /etc/grub.d/00_header
 
