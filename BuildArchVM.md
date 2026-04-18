@@ -58,16 +58,14 @@ systemctl disable systemd-networkd
 
 systemctl enable NetworkManager 
 
+systemd-machine-id-setup
+
 sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 
 ## Move boot files to boot partition
 cp -r /boot/* /tmp/    
 mount /dev/sdb1 /boot/    
 cp -r /tmp/* /boot/     
-
-## Generate machine id
-
-dbus-uuidgen > /etc/machine-id
 
 ## Add fstab entries
 
