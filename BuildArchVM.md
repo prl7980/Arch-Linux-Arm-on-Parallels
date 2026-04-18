@@ -17,13 +17,17 @@ cfdisk /dev/sdb
 
 ## Format partitions
 
+```bash
 mkfs.fat -F32 /dev/sdb1      
-mkfs.ext4 /dev/sdb2  
+mkfs.ext4 /dev/sdb2
+``` 
 
 ## Mount to the root filesystem
 
+```bash
 mkdir /mnt/arch  
 mount /dev/sdb2 /mnt/arch  
+```
 
 ## Create swap partition
 
